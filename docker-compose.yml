@@ -1,0 +1,25 @@
+version: "3"
+services:
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile-site
+    image: blog-site
+    volumes:
+      - ./_ports:/blog/_posts
+    container_name: blog-site
+    ports:
+      - 80:80
+
+#  nginx:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-nginx
+#    container_name: blog-nginx
+#    volumes:
+#      - ./certs:/etc/nginx/certification
+#    links:
+#      - jekyll:blog
+#    ports:
+#      - 80:80
+#      - "443:443"
