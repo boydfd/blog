@@ -5,6 +5,7 @@ builtDir='_build'
 build() {
 	sed s/{{builtDir}}/${builtDir}/g ./Dockerfile.template > Dockerfile
 	docker build -t $imageName .
+	rm -f Dockerfile
 }
 
 run() {
