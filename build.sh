@@ -1,5 +1,5 @@
 
-buildSite() {
+buildSite1() {
 	siteContainerName=blog
 	siteImage=blog
 	siteWorkDir=blog
@@ -9,6 +9,11 @@ buildSite() {
 	rm -f Dockerfile
 	docker rm -f $siteContainerName
 	docker run --name $siteContainerName -v $(pwd)/${builtDir}:/${siteWorkDir}/${builtDir} $siteImage
+	docker images | grep none | awk '{print $3}' | xargs docker rmi
+}
+
+buildSite() {
+	docker build -f Dockerfile-site -t blog-site .
 	docker images | grep none | awk '{print $3}' | xargs docker rmi
 }
 
