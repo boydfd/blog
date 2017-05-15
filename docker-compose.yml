@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile-site
     image: blog-site
     volumes:
-      - ./_ports:/blog/_posts
+      - ./_posts:/blog/_posts
     container_name: blog-site
     ports:
       - 80:80
