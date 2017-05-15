@@ -13,8 +13,8 @@ buildSite1() {
 }
 
 buildSite() {
-	docker build -f Dockerfile-site -t blog-site .
 	docker images | grep none | awk '{print $3}' | xargs docker rmi
+	docker build -f Dockerfile-site -t blog-site .
 }
 
 buildNginx() {
