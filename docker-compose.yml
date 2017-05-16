@@ -8,18 +8,16 @@ services:
     volumes:
       - ./_posts:/blog/_posts
     container_name: blog-site
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    container_name: blog-nginx
+    volumes:
+      - /etc/blog_certs:/etc/nginx/certification
+    links:
+      - jekyll:blog
     ports:
       - 80:80
-
-#  nginx:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile-nginx
-#    container_name: blog-nginx
-#    volumes:
-#      - ./certs:/etc/nginx/certification
-#    links:
-#      - jekyll:blog
-#    ports:
-#      - 80:80
-#      - "443:443"
+      - 443:443

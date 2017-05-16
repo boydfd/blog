@@ -19,12 +19,8 @@ buildSite() {
 
 buildNginx() {
 	nginxImage=blog-nginx
-	nginxContainerName=blog-nginx
-	cp Dockerfile.nginx Dockerfile
-	docker build -t $nginxImage .
-	rm -f Dockerfile
 	docker images | grep none | awk '{print $3}' | xargs docker rmi
-
+	docker build -f Dockerfile-nginx -t $nginxImage .
 }
 
 run() {
