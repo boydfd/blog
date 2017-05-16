@@ -13,6 +13,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-nginx
+    image: blog-nginx
     container_name: blog-nginx
     volumes:
       - /etc/blog_certs:/etc/nginx/certification
