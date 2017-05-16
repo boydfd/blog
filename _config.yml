@@ -20,6 +20,10 @@ disqus_shortname: boydfd
 g-analytics: UA-75881392-1
 altmetric: true
 
+# inertia
+raw_git_url: https://raw.githubusercontent.com/boydfd/inertia/master
+git_url: https://github.com/boydfd/inertia
+
 # Build settings
 gems: [jekyll-paginate]
 markdown: kramdown
