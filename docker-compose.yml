@@ -1,6 +1,6 @@
 version: "3"
 services:
-  jekyll:
+  site:
     build:
       context: .
       dockerfile: Dockerfile-site
@@ -11,14 +11,14 @@ services:
 
   nginx:
     build:
-      context: .
+      context: ./nginx
       dockerfile: Dockerfile-nginx
     image: blog-nginx
     container_name: blog-nginx
     volumes:
       - /etc/blog_certs:/etc/nginx/certification
     links:
-      - jekyll:blog
+      - site:blog
     ports:
       - 80:80
       - 443:443
