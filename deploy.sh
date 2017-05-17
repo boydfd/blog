@@ -4,6 +4,7 @@ sshRemote() {
 	ssh rlin@aboydfd.com "$1"
 }
 rebuild() {
+	set x
 	echo 1
 	echo $GO_FROM_REVISION_FOO
 	echo $GO_TO_REVISION_FOO
