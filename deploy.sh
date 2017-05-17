@@ -45,6 +45,7 @@ sshRemote() {
 	pemPath=~/certs/aboydfd.pem
 	if [ -f ${pemPath} ];
 	then
+		echo 'use pem file'
 		sshKey="-i $pemPath"
 	fi
 	ssh ${sshKey} rlin@aboydfd.com "$1"
