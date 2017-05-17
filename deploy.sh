@@ -5,7 +5,7 @@ sshRemote() {
 }
 rebuild() {
 	echo $GO_FROM_REVISION_FOO
-	ehco $GO_TO_REVISION_FOO
+	echo $GO_TO_REVISION_FOO
 	sshRemote 'cd blog; git pull -r;sudo docker-compose build;sudo docker-compose up -d'
 }
 update() {
