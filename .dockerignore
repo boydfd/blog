@@ -1,1 +1,10 @@
 _posts/*
+nginx/*
+.idea/*
+blog.iml
+.git/*
+_site/*
+README.md
+deploy.sh
+docker-compose.yml
+Dockerfile-site
