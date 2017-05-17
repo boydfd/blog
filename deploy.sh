@@ -42,7 +42,12 @@ updatePost() {
 }
 
 sshRemote() {
-	ssh rlin@aboydfd.com "$1"
+	pemPath=~/certs/aboydfd.pem
+	if [ -f ${pemPath} ];
+	then
+		sshKey="-i $pemPath"
+	fi
+	ssh ${sshKey} rlin@aboydfd.com "$1"
 }
 rebuild() {
 	sshRemote 'cd blog;sudo docker-compose build;sudo docker-compose up -d'
