@@ -28,6 +28,7 @@ services:
     image: 'gitlab/gitlab-ce:latest'
     restart: always
     hostname: 'gitlab.aboydfd.com'
+    container_name: gitlab
     ports:
       - '10080:80'
       - '10022:22'
