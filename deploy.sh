@@ -57,6 +57,9 @@ update() {
 	sshRemote 'cd blog; git pull -r'
 }
 case $1 in
+	init)
+		sudo docker-compose build; sudo docker-compose up -d
+		;;
 	bsite)
 		rebuildSite
 		;;

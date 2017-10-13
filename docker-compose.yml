@@ -19,20 +19,20 @@ services:
       - /etc/blog_certs:/etc/nginx/certification
     links:
       - site:blog
-      - gitlab:gitlab
+#      - gitlab:gitlab
     ports:
       - 80:80
       - 443:443
 
-  gitlab:
-    image: 'gitlab/gitlab-ce:latest'
-    restart: always
-    hostname: 'gitlab.aboydfd.com'
-    container_name: gitlab
-    ports:
-      - '10080:80'
-      - '10022:22'
-    volumes:
-      - '/home/rlin/gitlab:/config/etc/gitlab'
-      - '/home/rlin/logs:/config/etc/gitlab'
-      - '/home/rlin/data:/config/etc/gitlab'
+#  gitlab:
+#    image: 'gitlab/gitlab-ce:latest'
+#    restart: always
+#    hostname: 'gitlab.aboydfd.com'
+#    container_name: gitlab
+#    ports:
+#      - '10080:80'
+#      - '10022:22'
+#    volumes:
+#      - '/home/rlin/gitlab:/config/etc/gitlab'
+#      - '/home/rlin/logs:/config/etc/gitlab'
+#      - '/home/rlin/data:/config/etc/gitlab'
