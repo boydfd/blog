@@ -17,6 +17,8 @@ services:
     container_name: blog-nginx
     volumes:
       - /etc/blog_certs:/etc/nginx/certification
+      - /home/rlin/certs/letsencrypt/www:/var/www/letsencrypt
+      - /home/rlin/certs/letsencrypt/etc:/etc/letsencrypt
     links:
       - site:blog
 #      - gitlab:gitlab
