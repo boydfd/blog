@@ -17,9 +17,9 @@ date: 2018-03-10 08:19:00 +0800
 1. 这次会用Spring项目来做示范，进行全套的CI流程。这是本次项目使用的[代码库](https://github.com/boydfd/jenkins_docker_spring)
 2. 所有的需求就是装好docker，能使用git的。
 
-#1. Set up Jenkins
+# 1. Set up Jenkins
 
-##1. Install Jenkins in docker
+## 1. Install Jenkins in docker
 
 	docker run \
     --restart=always \
@@ -40,27 +40,27 @@ date: 2018-03-10 08:19:00 +0800
 5. -v "$HOME":/home （暂时还没发现有什么用）
 6. jenkinsci/blueocean 这是带blueocean的Jenkins容器。blueocean提供了更漂亮的界面。
 
-##2. Login Jenkins
+## 2. Login Jenkins
 装完后，可以访问[http://localhost:8888](http://localhost:8888)看到:  
 ![Login page](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/portal.png)
 
 按照提示找到密码然后填入
 
-##3. Initialize Jenkins
+## 3. Initialize Jenkins
 登录后，可以看到初始化界面:  
 ![Initialization page](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/Initialization.png)
 
 这里选择Install suggested plugins
 
-##4. Register
+## 4. Register
 装完后就出现了注册界面，可以注册第一个admin账号:
 ![Register page](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/register.png)
 
-## Set up repository 
+# 2. Set up repository 
 好的，Jenkins的环境准备完毕，来准备一下代码库（我们默认使用github来做代码库）。
 目前代码库只需要一个README就行了。
 
-#2. Set up pipeline
+# 3. Set up pipeline
 
 1. 打开blue ocean：
 ![Blue ocean page](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/open-blue-ocean.png)
@@ -95,7 +95,7 @@ date: 2018-03-10 08:19:00 +0800
 	3. 现在我们的pipeline还没法自动触发，我们可以点击小齿轮，进入pipeline的设置，然后设置Scan Repository Triggers为1分钟：
 		![Pipeline Trigger Setting](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/pipeline-trigger-setting.png)
 	
-#3. Add Test Stage
+# 4. Add Test Stage
 在准备好代码库和pipeline后，我们可以加入我们的第一个test stage了。
 
 1. 在Jenkinsfile中加入新的stage：
@@ -173,7 +173,7 @@ date: 2018-03-10 08:19:00 +0800
 
 8. 把我们的这个fail test删掉~~~~~
 
-#4. add build stage
+# 5. add build stage
 在我们的Jenkinsfile里加上build stage：
 ```groovy
 stage('Build') {
@@ -197,7 +197,7 @@ post块里的代码会让我们将build出来的包给保存下来。
 
 补充说明：其实gradle build的时候会跑test，所以可以只留一个stage。
 
-#5. add build docker image stage
+# 6. add build docker image stage
 1. 在这个stage我们需要把之前的jar包copy出来，所以需要Copy Artifact插件：
 	1. 依次打开：Manage Jenkins -> Manage Plugins
     2. 使用filter 搜索**Copy Artifact**并安装
@@ -270,7 +270,7 @@ post块里的代码会让我们将build出来的包给保存下来。
 	])
 	```
 
-#6. add deploy stage
+# 7. add deploy stage
 最后就是deploy了，一般的部署方式都很简单k8s和rancher都可以有http的方式来部署，这里我们使用ssh的方式登录到目标机器来部署（虽然不是好的实践，但是可以了解一下这样的方式）
 
 1. 我们需要在Jenkins里安装一个插件：
@@ -299,6 +299,6 @@ post块里的代码会让我们将build出来的包给保存下来。
 		1. configName: 对应插件配置里的Name。
 		2. execCommand: 登录目标机器后想执行的命令。这里我只是echo了一下。
 	
-#7. 结束语
+# 8. 结束语
 
 学好docker，走遍天下都不怕。只需要一台装有docker的机器，我们的jenkins就能完美运行了。
