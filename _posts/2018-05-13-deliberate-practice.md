@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      ''
-subtitle:   ''
+title:      '刻意练习'
+subtitle:   '如何在项目中刻意练习'
 author:     boydfd
 tags:       thinking
 category:   thinking
