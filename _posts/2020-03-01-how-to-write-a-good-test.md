@@ -8,7 +8,7 @@ category:   test
 date: 2020-03-01 14:00:00 +0800
 ---
 
-[博客原文地址]()
+[博客原文地址](https://www.aboydfd.com/test/2020/03/01/how-to-write-a-good-test/)
 
 ## 背景
 
