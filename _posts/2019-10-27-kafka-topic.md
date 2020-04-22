@@ -15,17 +15,17 @@ date: 2019-10-27 14:00:00 +0800
 
 ## 通过log找到分配partition的大概位置
 
-![find partition](https://raw.githubusercontent.com/boydfd/pictures/master/Kafka/find_partition_assigner.jpg)
+![find partition](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/Kafka/find_partition_assigner.jpg)
 
 从图中可以看到，在`org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumerBase`这个类中可以找到一些关键信息。
 
 ## 跟踪源码
 
-![log partition](https://raw.githubusercontent.com/boydfd/pictures/master/Kafka/log_partition.png)
+![log partition](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/Kafka/log_partition.png)
 
 ## 往上翻翻，看有没有有用信息
 
-![all partitions](https://raw.githubusercontent.com/boydfd/pictures/master/Kafka/all_partitions.jpg)
+![all partitions](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/Kafka/all_partitions.jpg)
 
 ## 关键源码，附上注释
 

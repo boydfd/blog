@@ -264,25 +264,25 @@ date: 2018-06-09 20:00:00 +0800
 
 #### 单词
 
-![momo](https://github.com/boydfd/pictures/raw/master/annual-review/momo.jpeg)
+![momo](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/momo.jpeg)
 
 #### 英语流利说
-![liulishuo](https://github.com/boydfd/pictures/raw/master/annual-review/liulishuo.jpeg)
+![liulishuo](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/liulishuo.jpeg)
 #### 薄荷阅读
-![mint1](https://github.com/boydfd/pictures/raw/master/annual-review/mint1.jpeg)
-![mint2](https://github.com/boydfd/pictures/raw/master/annual-review/mint2.jpeg)
+![mint1](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/mint1.jpeg)
+![mint2](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/mint2.jpeg)
 #### keep
-![keep1](https://github.com/boydfd/pictures/raw/master/annual-review/keep1.jpeg)
-![keep2](https://github.com/boydfd/pictures/raw/master/annual-review/keep2.jpeg)
+![keep1](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/keep1.jpeg)
+![keep2](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/keep2.jpeg)
 
 #### deeplearning.ai
-![deeplearning](https://github.com/boydfd/pictures/raw/master/annual-review/deeplearning.png)
+![deeplearning](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/deeplearning.png)
 
 #### 影响力
-![impact](https://github.com/boydfd/pictures/raw/master/annual-review/impact.png)
+![impact](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/impact.png)
 
 #### 关键对话
-![chat](https://github.com/boydfd/pictures/raw/master/annual-review/chat.png)
+![chat](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/annual-review/chat.png)
 
 ## 说说为什么我能坚持背单词365天不间断
 

@@ -42,19 +42,19 @@ date: 2018-03-10 08:19:00 +0800
 
 ## 2. Login Jenkins
 装完后，可以访问[http://localhost:8888](http://localhost:8888)看到:  
-![Login page](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/portal.png)
+![Login page](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/portal.png)
 
 按照提示找到密码然后填入
 
 ## 3. Initialize Jenkins
 登录后，可以看到初始化界面:  
-![Initialization page](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/Initialization.png)
+![Initialization page](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/Initialization.png)
 
 这里选择Install suggested plugins
 
 ## 4. Register
 装完后就出现了注册界面，可以注册第一个admin账号:
-![Register page](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/register.png)
+![Register page](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/register.png)
 
 # 2. Set up repository 
 好的，Jenkins的环境准备完毕，来准备一下代码库（我们默认使用github来做代码库）。
@@ -63,7 +63,7 @@ date: 2018-03-10 08:19:00 +0800
 # 3. Set up pipeline
 
 1. 打开blue ocean：
-![Blue ocean page](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/open-blue-ocean.png)
+![Blue ocean page](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/open-blue-ocean.png)
 2. 点击Create a new Pipeline。
 3. 点击GitHub
 4. 点击"Create an access key here."来创建Jenkins用于访问GitHub的Access token
@@ -75,25 +75,25 @@ date: 2018-03-10 08:19:00 +0800
 10. 点击"Create Pipeline"。
 11. 设置好pipeline：
 	1. 将Start的agent设置为none,因为我们之后要在不同的stage使用不同的agent（也就是不同的docker image）:
-![Pipeline start](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/pipeline-start.png)
+![Pipeline start](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/pipeline-start.png)
 	2. 添加一个hello world的stage：
 		1. 点击页面左边的加号
 		2. 在页面右边输入stage名字
 		3. 点击add step
 		4. 选择Shell Script
 		5. 输入: echo 'hello world':
-		![Pipeline steps](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/hello-world-stage-steps.png)
+		![Pipeline steps](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/hello-world-stage-steps.png)
 		6. 点击Settings
 		7. 选择agent为docker
 		8. image填busybox:
-		![Pipeline settings](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/hello-world-stage-settings.png)
+		![Pipeline settings](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/hello-world-stage-settings.png)
 		9. 点击save
 		10. 点击Save&run:
-		![Pipeline commit](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/hello-world-stage-commit.png)
+		![Pipeline commit](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/hello-world-stage-commit.png)
 		11. 等一小会儿，我们的第一个pipeline就变绿了。再check一下我们的git仓库，里面多了一条commit，以及Jenkinsfile:
-		![Spring hello world stage](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/spring-hello-world-stage.png)
+		![Spring hello world stage](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/spring-hello-world-stage.png)
 	3. 现在我们的pipeline还没法自动触发，我们可以点击小齿轮，进入pipeline的设置，然后设置Scan Repository Triggers为1分钟：
-		![Pipeline Trigger Setting](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/pipeline-trigger-setting.png)
+		![Pipeline Trigger Setting](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/pipeline-trigger-setting.png)
 	
 # 4. Add Test Stage
 在准备好代码库和pipeline后，我们可以加入我们的第一个test stage了。
@@ -117,7 +117,7 @@ date: 2018-03-10 08:19:00 +0800
 2. 在代码库中引入spring,并确保本地`./gradlew clean test`可以通过。
 3. push代码，等待pipeline被trigger。
 4. 打开jenkins，发现pipeline已经过了：
-![Pipeline Success 1](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/pipeline-success1.png)
+![Pipeline Success 1](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/pipeline-success1.png)
 
 5. 仔细看一下Test stage的log，发现了各种download依赖，我们需要想个办法保存这些依赖，作为gradle项目，直接将~/.gradle映射到容器中去就行了：
 
@@ -136,7 +136,7 @@ date: 2018-03-10 08:19:00 +0800
 	```
 
 6. 但是我们现在点击Pipeline里的Test，发现：
-![No Test Report](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/no-test-report.png)
+![No Test Report](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/no-test-report.png)
 所以现在我们加上Test报告:
 
 	```groovy
@@ -158,7 +158,7 @@ date: 2018-03-10 08:19:00 +0800
 	}
 	```
 
-![All pass test Report](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/all-pass-test-report.png)
+![All pass test Report](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/all-pass-test-report.png)
 
 7. 赶紧写一个Fail Test来试试我们的报告效果:
 
@@ -169,7 +169,7 @@ date: 2018-03-10 08:19:00 +0800
 		}
 	```
 
-![Test fail Report](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/test-fail-report.png)
+![Test fail Report](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/test-fail-report.png)
 
 8. 把我们的这个fail test删掉~~~~~
 
@@ -280,7 +280,7 @@ post块里的代码会让我们将build出来的包给保存下来。
 	1. 依次打开：Manage Jenkins -> Configure System
 	2. 在**Publish over SSH**section进行配置
 	
-![Ssh configuration](https://github.com/boydfd/pictures/raw/master/jenkins-docker-docker-docker/ssh-configuration.png)
+![Ssh configuration](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/jenkins-docker-docker-docker/ssh-configuration.png)
 3. 在Jenkinsfile里面新加一个Deploy stage:
 
 	```groovy

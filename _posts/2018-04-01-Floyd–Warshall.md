@@ -19,7 +19,7 @@ date: 2018-04-01 20:19:00 +0800
 
 直接摘自wiki：
 
-![principle](https://github.com/boydfd/pictures/raw/master/Floyd%E2%80%93Warshall/principle.png)
+![principle](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/Floyd%E2%80%93Warshall/principle.png)
 
 # 算法解析
 
@@ -39,7 +39,7 @@ Floyd–Warshall算法的动态规划思路着眼于"中间点"，公式中的k�
 
 4. 所以最后我们就得到了:
 	
-![formula](https://github.com/boydfd/pictures/raw/master/Floyd%E2%80%93Warshall/formula.png)
+![formula](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/Floyd%E2%80%93Warshall/formula.png)
 
 5. 当k>=1时的情况，我们之所以能这么写，是因为，最短路径只有一条，要么是通过k的，要么是不通过k的，短的那一条，必定是最短路径了。
 
@@ -81,4 +81,4 @@ ij都存下来，我们就得到了最终结果。
 
 ### 一个栗子
 
-![process](https://github.com/boydfd/pictures/raw/master/Floyd%E2%80%93Warshall/process.png)
+![process](https://gitlab.aboydfd.com/boydfd/pictures/-/raw/master/Floyd%E2%80%93Warshall/process.png)
