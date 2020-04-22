@@ -8,33 +8,23 @@ services:
     volumes:
       - ./_posts:/blog/_posts
     container_name: blog-site
-
-  nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile-nginx
-    image: blog-nginx
-    container_name: blog-nginx
-    volumes:
-      - /etc/blog_certs:/etc/nginx/certification
-      - /home/rlin/certs/letsencrypt/www:/var/www/letsencrypt
-      - /home/rlin/certs/letsencrypt/etc:/etc/letsencrypt
-    links:
-      - site:blog
-#      - gitlab:gitlab
     ports:
-      - 80:80
-      - 443:443
+      - 8080:80
 
-#  gitlab:
-#    image: 'gitlab/gitlab-ce:latest'
-#    restart: always
-#    hostname: 'gitlab.aboydfd.com'
-#    container_name: gitlab
-#    ports:
-#      - '10080:80'
-#      - '10022:22'
+#  nginx:
+#    build:
+#      context: ./nginx
+#      dockerfile: Dockerfile-nginx
+#    image: blog-nginx
+#    container_name: blog-nginx
 #    volumes:
-#      - '/home/rlin/gitlab:/config/etc/gitlab'
-#      - '/home/rlin/logs:/config/etc/gitlab'
-#      - '/home/rlin/data:/config/etc/gitlab'
+#      - /etc/blog_certs:/etc/nginx/certification
+#      - /home/rlin/certs/letsencrypt/www:/var/www/letsencrypt
+#      - /home/rlin/certs/letsencrypt/etc:/etc/letsencrypt
+#    links:
+#      - site:blog
+#      - gitlab:gitlab
+#    ports:
+#      - 80:80
+#      - 443:443
+
